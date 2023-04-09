@@ -1,4 +1,9 @@
-import { Grid, styled, Typography } from "@mui/material";
+import { Grid, IconButton, styled, Typography } from "@mui/material";
+import { Link, Share } from "@material-ui/icons";
+import ShareLinkSlideUp from "../../components/ShareLink";
+import { useState } from "react";
+import { selectUser } from "./userSlice";
+import { useAppSelector } from "../../app/hooks";
 
 const Img = styled("img")({
   margin: "auto",
@@ -57,6 +62,9 @@ const LinkComponent = ({ website, url }: Link) => {
 };
 
 const User = () => {
+  const [open, setOpen] = useState(false);
+  const user = useAppSelector(selectUser);
+
   return (
     <Grid
       justifyContent="center"
@@ -64,21 +72,28 @@ const User = () => {
         marginTop: 50,
       }}
       container
-      md={12}
-      sm={12}
-      direction="row"
+      direction={"column"}
     >
-      {/* Padding Grid
-            <Grid lg={2} sm={0} md={0} xs={0}></Grid> */}
+      <ShareLinkSlideUp open={open} setOpen={setOpen} />
+
+      <Grid item alignSelf={"end"}>
+        <IconButton
+          onClick={() => {
+            setOpen(!open);
+          }}
+        >
+          <Share />
+        </IconButton>
+      </Grid>
 
       <Grid
         justifyContent="center"
         style={{
           justifyContent: "space-evenly",
-          marginTop: 50,
+          marginTop: 20,
           marginBottom: 20,
         }}
-        lg={8}
+        item
         container
         direction="row"
       >
@@ -125,9 +140,6 @@ const User = () => {
           </Grid>
         </Grid>
       </Grid>
-
-      {/* Padding Grid */}
-      {/* <Grid lg={2}></Grid> */}
     </Grid>
   );
 };

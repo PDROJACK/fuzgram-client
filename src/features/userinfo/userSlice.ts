@@ -22,8 +22,8 @@ export interface User {
   links: Link[];
   email: string;
   profile: string;
-  userToken: string | null;
-  integrations: Integration[];
+  userToken?: string | null;
+  integrations?: Integration[];
 }
 
 const initialState: User = {
@@ -60,12 +60,16 @@ const api = axios.create({
   },
 });
 
-export const sendAsyncIntegrationRequest = createAsyncThunk<
+export const sendGetUserDataRequest = createAsyncThunk<
   object,
   IsendAsyncIntegrationRequest
->("data/sendAsyncIntegrationRequest", async (request, thunkApi) => {
+>("data/sendGetUserDataRequest", async (request, thunkApi) => {
   try {
-    const res = await api.post("/integrate", request);
+    const res = await api.get("/user", {
+      params: {
+        user: request.user,
+      },
+    });
 
     if (res.status === 400) {
       // Return the known error for future handling
@@ -95,15 +99,15 @@ export const userSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-      .addCase(sendAsyncIntegrationRequest.pending, (state) => {
+      .addCase(sendGetUserDataRequest.pending, (state) => {
         return state;
       })
-      .addCase(sendAsyncIntegrationRequest.fulfilled, (state, action) => {
+      .addCase(sendGetUserDataRequest.fulfilled, (state, action) => {
         state.integrations.forEach((i) => {
           i.status = true;
         });
       })
-      .addCase(sendAsyncIntegrationRequest.rejected, (state, action) => {
+      .addCase(sendGetUserDataRequest.rejected, (state, action) => {
         return state;
       });
   },

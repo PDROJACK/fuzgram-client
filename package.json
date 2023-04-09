@@ -1,9 +1,9 @@
 {
-  "name": "frontend",
+  "name": "fuzgram-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.8.1",
+    "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.4.3",
     "@reduxjs/toolkit": "^1.7.2",
@@ -18,16 +18,19 @@
     "axios": "^0.26.0",
     "fb": "^2.0.0",
     "firebase": "^9.17.2",
+    "kbar": "^0.1.0-beta.40",
+    "lodash": "^4.17.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-material-ui-carousel": "^2.3.7-mui5",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.8.2",
     "react-scripts": "5.0.0",
+    "tss-react": "^4.8.2",
     "typescript": "~4.1.5"
   },
   "scripts": {
-    "start": "PORT=80 HTTPS=true SSL_CRT_FILE=../certificates/localhost.pem SSL_KEY_FILE=../certificates/localhost-key.pem react-scripts start",
+    "start": "PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

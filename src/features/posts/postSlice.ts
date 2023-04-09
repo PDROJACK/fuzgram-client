@@ -5,15 +5,14 @@ type Link = {
   website: string;
   url: string;
 };
-export interface Post {
+export type Post = {
+  uid: string;
   id: string;
-  username: string;
-  instagram: string;
-  links: Link[];
-  email: string;
-  profile: string;
-  content: string;
-}
+  caption: string;
+  media_type: string;
+  media_url: string;
+  links?: string[];
+};
 
 type IinitialStateType = {
   modal: boolean;
@@ -25,17 +24,11 @@ const initialState: IinitialStateType = {
   posts: [
     {
       id: "1",
-      username: "pdrojack",
-      instagram: "pdrojack",
-      links: [
-        {
-          website: "spotify",
-          url: "http://spotify.com/pdrojac",
-        },
-      ],
-      email: "pdro@jack.com",
-      profile: "profile.photo",
-      content: "Hello this is mellow",
+      uid: "pdrojack",
+      links: ["http://spotify.com/pdrojack"],
+      caption: "Hello this is mellow",
+      media_url: "http://media.url",
+      media_type: "image",
     },
   ],
 };
