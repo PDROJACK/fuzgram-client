@@ -1,1 +1,1 @@
-# cinibuy-frontend
+# fuzgram-client
