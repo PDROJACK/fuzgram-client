@@ -10,19 +10,20 @@ export default createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: "/:username/:socialUsername",
-    loader: async ({ params }) => {
-      console.log(params);
-      return api.get(`/${params.username}/${params.socialUsername}`);
-    },
+    path: "/user",
+    // loader: async ({ params }) => {
+    //   console.log(params);
+    //   return api.get(`/${params.username}`);
+    // },
     element: <Posts />,
   },
-  {
-    path: "/:username",
-    loader: async ({ params }) => {
-      console.log(params);
-      return api.get(`/${params.username}`);
-    },
-    element: <Posts />,
-  },
+  // },
+  // {
+  //   path: "/:username/:socialUsername",
+  //   loader: async ({ params }) => {
+  //     console.log(params);
+  //     return api.get(`/${params.username}/${params.socialUsername}`);
+  //   },
+  //   element: <Posts />,
+  // },
 ]);

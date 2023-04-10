@@ -60,24 +60,6 @@ const api = axios.create({
   },
 });
 
-export const sendAsyncIntegrationRequest = createAsyncThunk<
-  object,
-  IsendAsyncIntegrationRequest
->("data/sendAsyncIntegrationRequest", async (request, thunkApi) => {
-  try {
-    const res = await api.post("/integrate", request);
-
-    if (res.status === 400) {
-      // Return the known error for future handling
-      return thunkApi.rejectWithValue(res.data);
-    }
-
-    return res.data;
-  } catch (error: any) {
-    return thunkApi.rejectWithValue(error.toString());
-  }
-});
-
 export const sendGetUserDataRequest = createAsyncThunk<
   object,
   IsendAsyncIntegrationRequest
