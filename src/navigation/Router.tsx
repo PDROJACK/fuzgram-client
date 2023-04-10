@@ -16,8 +16,8 @@ export default createBrowserRouter([
     //   return api.get(`/${params.username}`);
     // },
     element: <Posts />,
-  }
-    // },
+  },
+  // },
   // {
   //   path: "/:username/:socialUsername",
   //   loader: async ({ params }) => {
@@ -26,5 +26,4 @@ export default createBrowserRouter([
   //   },
   //   element: <Posts />,
   // },
-
 ]);

@@ -30,7 +30,7 @@ function App() {
   return (
     <Provider store={store}>
       {/* <ThemeProvider theme={theme}> */}
-        <RouterProvider router={rootClientRouter} />
+      <RouterProvider router={rootClientRouter} />
       {/* </ThemeProvider> */}
     </Provider>
   );
