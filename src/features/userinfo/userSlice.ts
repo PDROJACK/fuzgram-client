@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
-import { API_URL } from "../../app/constants";
 import { RootState } from "../../app/store";
 import { IsendAsyncIntegrationRequest } from "./userTypes";
 
@@ -25,6 +24,8 @@ export interface User {
   userToken?: string | null;
   integrations?: Integration[];
 }
+
+const API_URL = "http://localhost:3000";
 
 const initialState: User = {
   uid: "1234",
